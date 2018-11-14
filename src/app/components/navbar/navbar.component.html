@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light bg-pfe">
+	<a class="navbar-brand">PFE - Eventos</a>
+
+	<button class="navbar-toggler" type="button" (click)="toggleNavbar()">
+		<i class="fa fa-bars"></i>
+	</button>
+
+	<div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
+		<ul class="navbar-nav ml-auto">
+			<li class="nav-item">
+				<a class="nav-link" routerLink="dashboard">Dashboard</a>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" (click)="toggleManutencao()" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+					Manutenção
+				</a>
+				<div class="dropdown-menu" [ngClass]="{ 'show': manutencaoOpen }">
+					<a class="dropdown-item" routerLink="programacao" (click)="toggleManutencao()">Programação</a>
+					<!--<a class="dropdown-item" routerLink="manual" (click)="toggleManutencao()">Conteúdo</a>-->
+					<!--<a class="dropdown-item" routerLink="lista" (click)="toggleManutencao()" >Inscrições das oficinas</a>-->
+					<a class="dropdown-item" routerLink="uso" (click)="toggleManutencao()">Palestrantes</a>
+					<a class="dropdown-item" routerLink="status" (click)="toggleManutencao()">Perguntas</a>
+				</div>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" routerLink="lista">Inscrições</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" routerLink="usuarios">Usuários</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#" (click)="logout($event)" *ngIf="loggedIn">Sair</a>
+			</li>
+		</ul>
+	</div>
+</nav>

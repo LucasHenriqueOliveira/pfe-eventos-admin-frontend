@@ -1,0 +1,58 @@
+<fieldset class="fieldset">
+	<legend>Perguntas</legend>
+	<p>
+		Selecione a palestra/oficina
+	</p>
+	<form>
+		<div class="form-group col-md-12">
+			<select id="inputProgramacao" class="form-control" (change)="loadPerguntas(selectedProgramacao)" [(ngModel)]="selectedProgramacao" [ngModelOptions]="{standalone: true}">
+				<option *ngFor="let programacao of arrProgramacao" [value]="programacao.id_programacao">{{programacao.titulo}}</option>
+			</select>
+		</div>
+	</form>
+</fieldset>
+<div *ngIf="selectedProgramacao" class="table-responsive">
+	<div *ngFor="let pergunta of arrItems | keyvalue">
+		<div class="pergunta">
+			<div class="row">
+				<div class="col-8">
+					<small>{{ pergunta.value.pergunta.name }}</small>
+				</div>
+				<div class="col-4 text-right">
+					<small>{{ pergunta.value.pergunta.data_pergunta }}</small>
+				</div>
+			</div>
+			<div class="row texto">
+				<div class="col-10">
+					<i *ngIf="pergunta.value.respostas.length" class="fa fa-question-circle" aria-hidden="true"></i>
+					<i *ngIf="!pergunta.value.respostas.length" class="fa fa-question-circle-o" aria-hidden="true"></i>
+					<i>{{ pergunta.value.pergunta.pergunta }}</i>
+				</div>
+				<div class="col-2 text-right">
+					<a (click)="responder(pergunta.value.pergunta.id, pergunta.value.pergunta.id_programacao)">
+						<i class="fa fa-reply" aria-hidden="true"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="resposta" *ngFor="let resposta of pergunta.value.respostas | keyvalue">
+			<div class="row">
+				<div class="col-8">
+					<small>{{ resposta.value.name }}</small>
+				</div>
+				<div class="col-4 text-right">
+					<small>{{ resposta.value.data_resposta }}</small>
+				</div>
+			</div>
+			<div class="row texto">
+				<div class="col-10">
+					<i>{{ resposta.value.resposta }}</i>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div *ngIf="!arrItems.length">
+		<p>Não existem perguntas para a palestra/oficina selecionada!</p>
+	</div>
+</div>
+<div [ngClass]="{'loading': loading}"></div>

@@ -1,0 +1,31 @@
+<fieldset class="fieldset">
+	<legend>Lista de Inscrições</legend>
+	<p>
+		Selecione a oficina
+	</p>
+	<form>
+		<div class="form-group col-md-12">
+			<select id="inputProgramacao" class="form-control" (change)="loadInscritos(selectedProgramacao)" [(ngModel)]="selectedProgramacao" [ngModelOptions]="{standalone: true}">
+				<option *ngFor="let programacao of arrProgramacao" [value]="programacao.id_programacao">{{programacao.titulo}}</option>
+			</select>
+		</div>
+	</form>
+</fieldset>
+<p *ngIf="selectedProgramacao">Total de inscritos: {{ arrUsuarios.length }}</p>
+<div *ngIf="selectedProgramacao && arrUsuarios.length" class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Nome</th>
+				<th>Email</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let usuario of arrUsuarios">
+				<td>{{ usuario.name }}</td>
+				<td>{{ usuario.email }}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div [ngClass]="{'loading': loading}"></div>

@@ -1,0 +1,100 @@
+<div class="row">
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-3">
+                        <i class="fa fa-users fa-5x"></i>
+                    </div>
+                    <div class="col-9 text-right">
+                        <div class="huge">{{ data.usuarios }}</div>
+                        <div class="text-card">Usuários</div>
+                    </div>
+                </div>
+            </div>
+            <a routerLink="/usuarios">
+                <div class="panel-footer">
+                    <span class="pull-left details">Veja Detalhes</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-green">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-3">
+                        <i class="fa fa-user fa-5x"></i>
+                    </div>
+                    <div class="col-9 text-right">
+                        <div class="huge">{{ data.palestrantes }}</div>
+                        <div class="text-card">Palestrantes</div>
+                    </div>
+                </div>
+            </div>
+            <a routerLink="/uso">
+                <div class="panel-footer">
+                    <span class="pull-left details">Veja Detalhes</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-yellow">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-3">
+                        <i class="fa fa-graduation-cap fa-5x"></i>
+                    </div>
+                    <div class="col-9 text-right">
+                        <div class="huge">{{ data.oficinas }}</div>
+                        <div class="text-card">Palestras/Oficinas</div>
+                    </div>
+                </div>
+            </div>
+            <a routerLink="/programacao">
+                <div class="panel-footer">
+                    <span class="pull-left details">Veja Detalhes</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-red">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-3">
+                        <i class="fa fa-reply-all fa-5x"></i>
+                    </div>
+                    <div class="col-9 text-right">
+                        <div class="huge">{{ data.perguntas }}</div>
+                        <div class="text-card">Perguntas sem resposta</div>
+                    </div>
+                </div>
+            </div>
+            <a routerLink="/status">
+                <div class="panel-footer">
+                    <span class="pull-left details">Veja Detalhes</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+    </div>
+</div>
+<div [ngClass]="{'loading': loading}"></div>

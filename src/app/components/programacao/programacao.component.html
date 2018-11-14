@@ -1,0 +1,103 @@
+<fieldset class="fieldset">
+	<legend>Programação</legend>
+	<p>
+		Insira os dados da programação.
+	</p>
+	<form [formGroup]="programacaoForm" (ngSubmit)="onSubmit()">
+		<div class="form-row">
+			<div class="form-group col-md-12">
+				<input type="text" class="form-control" formControlName="titulo" placeholder="Título" required />
+			</div>
+			<div class="form-group col-md-2">
+				<input type="text" class="form-control" formControlName="dia" placeholder="xx/xx/xxxx" required />
+			</div>
+			<div class="form-group col-md-2">
+				<input type="text" class="form-control" formControlName="hora_inicio" placeholder="Hora início" required />
+			</div>
+			<div class="form-group col-md-2">
+				<input type="text" class="form-control" formControlName="hora_fim" placeholder="Hora fim" required />
+			</div>
+			<div class="form-group col-md-6">
+				<input type="text" class="form-control" formControlName="local" placeholder="Local" required />
+			</div>
+			<div class="form-group col-md-3">
+				<select id="inputTipo" class="form-control" formControlName="selectedTipo">
+					<option selected value="0">Selecione o tipo</option>
+					<option selected value="Oficina">Oficina</option>
+					<option selected value="Palestra">Palestra</option>
+				</select>
+			</div>
+			<div class="form-group col-md-2">
+				<input type="text" class="form-control" formControlName="vagas" placeholder="Vagas" />
+			</div>
+			<div class="form-group col-md-7">
+				<select id="inputPalestrantes" class="form-control" formControlName="selectedPalestrante">
+					<option selected value="0">Selecione o palestrante</option>
+					<option *ngFor="let palestrante of arrPalestrantes" [value]="palestrante.id">{{palestrante.nome}}</option>
+				</select>
+			</div>
+			<div class="custom-file">
+				<input type="file" (change)="fileChange($event)" formControlName="documento" class="custom-file-input" id="documentoFile" accept=".pdf">
+				<label class="custom-file-label" for="documentoFile">{{ textDocumento }}</label>
+				<div class="invalid-feedback">Arquivo inválido</div>
+			</div>
+			<div class="form-group col-md-12">
+				<button class="btn btn-primary" [disabled]="!checkButton()">Salvar</button>
+			</div>
+		</div>
+	</form>
+</fieldset>
+<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Programação</th>
+				<th class="text-center">Ação</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let item of arrItems">
+				<td>
+					<i>{{ item.titulo }}</i><br/>
+					<small>
+						{{ item.tipo }} - <span *ngIf="item.tipo === 'Oficina'">{{ item.vagas }} vagas -</span> {{ item.local }} <br/> 
+						{{ item.dia }}, de {{ item.hora_inicio }} até {{ item.hora_fim }} <br/>
+						{{ item.nome }}
+					</small>
+				</td>
+				<td class="text-center">
+					<a *ngIf="item.tipo === 'Oficina'" (click)="openVotacao(item.id_programacao, item.votacao, item.conclusao)">
+						<i class="fa fa-legal" aria-hidden="true"></i>
+					</a>
+					<a *ngIf="item.documento" (click)="openDocumento(item.documento)">
+						<i class="fa fa-file-o" aria-hidden="true"></i>
+					</a>
+					<a (click)="openEdit(item.id_programacao, item.titulo, item.dia, item.hora_inicio, item.hora_fim, item.local, item.tipo, item.vagas, item.id_palestrante)">
+						<i class="fa fa-pencil" aria-hidden="true"></i>
+					</a>
+					<a (click)="openRemove(content, item.id)">
+						<i class="fa fa-trash" aria-hidden="true"></i>
+					</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div [ngClass]="{'loading': loading}"></div>
+	
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Remover a programação</h4>
+		<button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+		<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body">
+		<p>Você deseja remover a programação? <br />
+			<b>Essa operação não poderá ser desfeita.</b></p>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-light" (click)="modal.dismiss('cancel click')">Não</button>
+		<button type="button" class="btn btn-danger" ngbAutofocus (click)="remove()">Sim</button>
+	</div>
+</ng-template>

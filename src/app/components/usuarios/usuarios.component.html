@@ -1,0 +1,24 @@
+<fieldset class="fieldset">
+	<legend>Usuários</legend>
+	<p>
+		Lista dos usuários cadastrados no aplicativo.
+	</p>
+	<div class="table-responsive">
+		<p>Total de Usuários: {{ arrUsuarios.length }}</p>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Email</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let usuario of arrUsuarios">
+					<td>{{ usuario.name }}</td>
+					<td>{{ usuario.email }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</fieldset>
+<div [ngClass]="{'loading': loading}"></div>
