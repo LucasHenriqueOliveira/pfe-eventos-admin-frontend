@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Constants } from '../app.constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StatusService {
 
-  private baseUrl = 'http://localhost:8000/api';
+  private baseUrl = Constants.api;
 
   constructor(private http: HttpClient) { }
 
@@ -19,7 +19,7 @@ export class StatusService {
     return this.http.post(`${this.baseUrl}/status`, data);
   }
 
-  getPerguntas(id): Observable<[]> {
-    return this.http.get<[]>(`${this.baseUrl}/status/${id}`);
+  getPerguntas(id) {
+    return this.http.get(`${this.baseUrl}/status/${id}`);
   }
 }

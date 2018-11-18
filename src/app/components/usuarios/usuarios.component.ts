@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 export class UsuariosComponent implements OnInit {
 
   loading = false;
-  arrUsuarios = [];
+  arrUsuarios: any = [];
 
   constructor(private notify: SnotifyService, private User: UserService) { }
 

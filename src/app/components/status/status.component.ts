@@ -63,8 +63,8 @@ export class StatusComponent implements OnInit {
     porcentagem: new FormControl('')
   });
   loading = false;
-  arrItems = [];
-  arrProgramacao = [];
+  arrItems: any = [];
+  arrProgramacao: any = [];
   id: any;
 
   constructor(private notify: SnotifyService, private Status: StatusService, private modalService: NgbModal,

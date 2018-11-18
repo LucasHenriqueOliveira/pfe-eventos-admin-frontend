@@ -23,11 +23,9 @@ import { ProgramacaoComponent,
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProgramacaoService } from './services/programacao.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ManualComponent } from './components/manual/manual.component';
 
 import { registerLocaleData } from '@angular/common';
 import ptBr from '@angular/common/locales/pt';
-import { VeiculoService } from './services/veiculo.service';
 import { ListaComponent } from './components/lista/lista.component';
 import { UsoComponent, ModalUsoEditComponent } from './components/uso/uso.component';
 import { StatusComponent, ModalStatusEditComponent } from './components/status/status.component';
@@ -51,7 +49,6 @@ registerLocaleData(ptBr);
     ResponseResetComponent,
     ProgramacaoComponent,
     DashboardComponent,
-    ManualComponent,
     ListaComponent,
     UsoComponent,
     StatusComponent,
@@ -80,7 +77,6 @@ registerLocaleData(ptBr);
     { provide: 'SnotifyToastConfig', useValue: ToastDefaults},
     SnotifyService,
     ProgramacaoService,
-    VeiculoService,
     StatusService,
     UsoService,
     DashboardService,

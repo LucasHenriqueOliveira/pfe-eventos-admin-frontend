@@ -172,7 +172,7 @@ export class ProgramacaoComponent implements OnInit {
 
   loading = false;
   arrPalestrantes: any;
-  arrItems: any;
+  arrItems: any = [];
   programacaoForm: any;
   id: any;
   textDocumento = 'Selecione o arquivo com conteúdo';

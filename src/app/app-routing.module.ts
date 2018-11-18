@@ -9,7 +9,6 @@ import { BeforeLoginService } from './services/before-login.service';
 import { AfterLoginService } from './services/after-login.service';
 import { ProgramacaoComponent } from './components/programacao/programacao.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ManualComponent } from './components/manual/manual.component';
 import { ListaComponent } from './components/lista/lista.component';
 import { StatusComponent } from './components/status/status.component';
 import { UsoComponent } from './components/uso/uso.component';
@@ -34,11 +33,6 @@ const appRoutes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
-    canActivate: [AfterLoginService]
-  },
-  {
-    path: 'manual',
-    component: ManualComponent,
     canActivate: [AfterLoginService]
   },
   {

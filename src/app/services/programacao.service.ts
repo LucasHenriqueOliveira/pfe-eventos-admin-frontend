@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Constants } from '../app.constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProgramacaoService {
 
-  private baseUrl = 'http://localhost:8000/api';
+  private baseUrl = Constants.api;
 
   constructor(private http: HttpClient) { }
 
-  get(): Observable<[]> {
-    return this.http.get<[]>(`${this.baseUrl}/programacao`);
+  get() {
+    return this.http.get(`${this.baseUrl}/programacao`);
   }
 
-  getList(id): Observable<[]> {
-    return this.http.get<[]>(`${this.baseUrl}/programacao/${id}`);
+  getList(id) {
+    return this.http.get(`${this.baseUrl}/programacao/${id}`);
   }
 
   save(data) {

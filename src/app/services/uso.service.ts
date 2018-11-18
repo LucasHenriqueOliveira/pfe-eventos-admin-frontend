@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Constants } from '../app.constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsoService {
 
-  private baseUrl = 'http://localhost:8000/api';
+  private baseUrl = Constants.api;
 
   constructor(private http: HttpClient) { }
 
