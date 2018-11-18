@@ -10,12 +10,12 @@ import { SnotifyService } from 'ng-snotify';
 })
 export class ResponseResetComponent implements OnInit {
 
-  public error = [];
+  public error: any = [];
   public form = {
-    email : null,
-    password : null,
+    email: null,
+    password: null,
     password_confirmation: null,
-    resetToken : null
+    resetToken: null
   };
 
   constructor(

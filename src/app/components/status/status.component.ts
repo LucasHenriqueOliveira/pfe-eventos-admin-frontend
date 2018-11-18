@@ -35,6 +35,7 @@ import { ProgramacaoService } from 'src/app/services/programacao.service';
 export class ModalStatusEditComponent {
   @Input() id_pergunta;
   @Input() id_programacao;
+  resposta: any;
 
   constructor(public activeModal: NgbActiveModal) {}
 
@@ -66,6 +67,7 @@ export class StatusComponent implements OnInit {
   arrItems: any = [];
   arrProgramacao: any = [];
   id: any;
+  selectedProgramacao: any;
 
   constructor(private notify: SnotifyService, private Status: StatusService, private modalService: NgbModal,
     private Programacao: ProgramacaoService) { }

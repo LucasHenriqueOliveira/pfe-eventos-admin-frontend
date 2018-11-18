@@ -78,6 +78,7 @@ export class ModalProgramacaoEditComponent {
   @Input() arrPalestrantes;
   textDocumento = 'Selecione o arquivo com conteúdo';
   fileSelected: any;
+  documento: any;
 
   constructor(public activeModal: NgbActiveModal) {}
 

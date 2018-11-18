@@ -12,6 +12,7 @@ export class ListaComponent implements OnInit {
   loading = false;
   arrProgramacao: any = [];
   arrUsuarios: any = [];
+  selectedProgramacao: any;
 
   constructor(private Programacao: ProgramacaoService, private notify: SnotifyService) { }
 
