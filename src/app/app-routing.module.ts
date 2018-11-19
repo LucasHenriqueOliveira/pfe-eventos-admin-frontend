@@ -16,6 +16,12 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
 
 const appRoutes: Routes = [
   {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full',
+    canActivate: [BeforeLoginService]
+  },
+  {
     path: 'login',
     component: LoginComponent,
     canActivate: [BeforeLoginService]

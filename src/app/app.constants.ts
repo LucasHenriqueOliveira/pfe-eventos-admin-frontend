@@ -1,3 +1,3 @@
 export const Constants = {
-    api: 'http://pfe-eventos.herokuapp.com/api'
+    api: 'https://pfe-eventos.herokuapp.com/api'
 };
