@@ -35,6 +35,7 @@ import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { DataTablesModule } from 'angular-datatables';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { DashboardService } from './services/dashboard.service';
+import { CertificadoComponent } from './components/certificado/certificado.component';
 registerLocaleData(ptBr);
 
 
@@ -56,7 +57,8 @@ registerLocaleData(ptBr);
     ModalUsoEditComponent,
     ModalStatusEditComponent,
     ModalProgramacaoVotacaoComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    CertificadoComponent
   ],
   imports: [
     BrowserModule,

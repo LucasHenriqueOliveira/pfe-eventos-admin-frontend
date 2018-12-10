@@ -30,4 +30,8 @@ export class UserService {
   changePassword(data) {
     return this.http.post(`${this.baseUrl}/resetPassword`, data);
   }
+
+  certificado(data) {
+    return this.http.post(`${this.baseUrl}/certificado`, data);
+  }
 }

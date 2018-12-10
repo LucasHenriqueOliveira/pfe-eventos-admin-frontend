@@ -23,7 +23,7 @@ export class CertificadoComponent implements OnInit {
       data => {
         this.loading = false;
         this.error = '';
-        window.open('http://127.0.0.1:8000/files/certificados/' + data['data'], '_blank');
+        window.open('https://pfe-eventos.herokuapp.com/files/certificados/' + data['data'], '_blank');
       },
       error => {
         this.loading = false;

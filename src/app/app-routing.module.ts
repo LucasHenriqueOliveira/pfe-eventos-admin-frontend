@@ -13,6 +13,7 @@ import { ListaComponent } from './components/lista/lista.component';
 import { StatusComponent } from './components/status/status.component';
 import { UsoComponent } from './components/uso/uso.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { CertificadoComponent } from './components/certificado/certificado.component';
 
 const appRoutes: Routes = [
   {
@@ -76,6 +77,11 @@ const appRoutes: Routes = [
     component: ResponseResetComponent,
     canActivate: [BeforeLoginService]
   },
+  {
+    path: 'certificado',
+    component: CertificadoComponent,
+    canActivate: [BeforeLoginService]
+  }
 ];
 
 @NgModule({
